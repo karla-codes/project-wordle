@@ -1,17 +1,8 @@
 import React from 'react';
+import Guess from '../Guess/Guess';
 
 function GuessResults({ guessList }) {
-  return (
-    <div className='guess-results'>
-      {guessList.map((word) => (
-        <p
-          className='guess'
-          key={Math.random()}>
-          {word}
-        </p>
-      ))}
-    </div>
-  );
+  return <Guess guessList={guessList} />;
 }
 
 export default GuessResults;

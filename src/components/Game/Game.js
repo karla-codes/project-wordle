@@ -1,6 +1,6 @@
 import React from 'react';
-import GuessInput from '../GuessInput/GuessInput';
-import GuessResults from '../GuessResults/GuessResults';
+import GuessInput from '../GuessInput';
+import GuessResults from '../GuessResults';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
@@ -14,7 +14,6 @@ function Game() {
   const [guessList, setGuessList] = React.useState([]);
 
   function updateGuessList(guess) {
-    // update new input probably in higher level state
     const nextGuessList = [...guessList];
     nextGuessList.push(guess);
     setGuessList(nextGuessList);
@@ -23,7 +22,10 @@ function Game() {
   return (
     <>
       <GuessResults guessList={guessList} />
-      <GuessInput updateGuessList={updateGuessList} />
+      <GuessInput
+        guessList={guessList}
+        updateGuessList={updateGuessList}
+      />
     </>
   );
 }
