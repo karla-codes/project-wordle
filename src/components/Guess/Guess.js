@@ -2,21 +2,18 @@ import React from 'react';
 import { range } from '../../utils';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
-function Guess({ guessList }) {
+function Guess({ guessInfo }) {
   function displayGuessList() {
-    const maxRows = guessList.slice(0, NUM_OF_GUESSES_ALLOWED);
-    let grid = maxRows.map((guess) => {
-      const guessArray = guess.split('');
-
+    let grid = guessInfo.map((guess) => {
       return (
         <p
           className='guess'
           key={Math.random()}>
-          {guessArray.map((letter) => (
+          {guess.map((item) => (
             <span
-              className='cell'
+              className={`cell ${item.status}`}
               key={Math.random()}>
-              {letter}
+              {item.letter}
             </span>
           ))}
         </p>

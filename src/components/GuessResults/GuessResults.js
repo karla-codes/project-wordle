@@ -1,8 +1,12 @@
 import React from 'react';
-import Guess from '../Guess/Guess';
+import Guess from '../Guess';
 
-function GuessResults({ guessList }) {
-  return <Guess guessList={guessList} />;
+function GuessResults({ guessInfo }) {
+  return (
+    <div className='guess-results'>
+      <Guess guessInfo={guessInfo} />
+    </div>
+  );
 }
 
 export default GuessResults;
