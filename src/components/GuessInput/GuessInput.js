@@ -1,7 +1,7 @@
 import React from 'react';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
-function GuessInput({ guessList, updateGuessList }) {
+function GuessInput({ guessList, updateGuessList, gameOver }) {
   const [input, setInput] = React.useState('');
 
   function checkMinMaxLength(word) {
@@ -38,6 +38,7 @@ function GuessInput({ guessList, updateGuessList }) {
         id='guess-input'
         type='text'
         value={input}
+        disabled={gameOver ? true : false}
         onChange={(e) => setInput(e.target.value.toUpperCase())}
       />
     </form>

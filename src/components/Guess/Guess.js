@@ -20,13 +20,14 @@ function Guess({ guessInfo }) {
       );
     });
 
+    // fill in empty guess slots with empty rows
     if (grid.length < NUM_OF_GUESSES_ALLOWED) {
       let remainingGuesses = NUM_OF_GUESSES_ALLOWED - grid.length;
       let rowsNeeded = range(0, remainingGuesses).map(() => (
         <p
           className='guess'
           key={Math.random()}>
-          {range(0, 5).map(() => (
+          {range(5).map(() => (
             <span
               className='cell'
               key={Math.random()}></span>
